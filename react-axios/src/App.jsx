@@ -9,9 +9,9 @@ function App() {
   return (
     <div>
       <div> React Axios </div>
-    {/* <ListOfProducts /> */}
-    <AddProduct />
-      
+    <ListOfProducts />
+    {/* <AddProduct />
+       */}
     </div>
   )
 }

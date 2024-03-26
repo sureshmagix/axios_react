@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from "react";
 import axios from "axios";
+import { instance } from "../axios";
 
 export default function ListOfProducts(){
     const [state,setState] = useState([])
@@ -12,10 +13,15 @@ export default function ListOfProducts(){
     //     .catch(error => console.log(error));
     // },[])
 
+    const token = ' auth_token';
     useEffect(()=>{
         const getProducts = async () => {
             try {
-                const response = await axios.get('https://dummyjson.com/products');
+                const response = await instance.get('/products',{
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                 if(response.status == 200){
                 setState(response.data.products);
                 }
